@@ -1,51 +1,35 @@
 package wb0x02;
-// 홀수 구하기
+// 대표값2
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Ctn2576 {
+public class Ctn2587 {
 
     public static void main(String[] args) {
 
         FastReader fr = new FastReader();
 
-        int[] a = {0, 0, 0, 0, 0, 0, 0};
-        int min = 0;
+
+        int[] a = new int[5];
         int sum = 0;
 
-        a[0] = fr.nextInt();
-        a[1] = fr.nextInt();
-        a[2] = fr.nextInt();
-        a[3] = fr.nextInt();
-        a[4] = fr.nextInt();
-        a[5] = fr.nextInt();
-        a[6] = fr.nextInt();
-
         for(int i = 0; i < a.length; i++) {
-            if(a[i] % 2 == 1) {
-                sum += a[i];
-            }
+            do {
+                a[i] = fr.nextInt();
+            } while (
+                (!(a[i] % 10 == 0 && a[i] < 100 && a[i] > 0))
+            );
+            sum += a[i];
         }
+
         Arrays.sort(a);
 
-        for(int i = 0; i < a.length; i++) {
-            if(a[i] % 2 == 1) {
-                min = a[i];
-                break;
-            }
-        }
-
-        if(sum == 0) {
-            System.out.println(-1);
-        }
-        else{
-            System.out.println(sum);
-            System.out.println(min);
-        }
-
+        System.out.println(sum/a.length);
+        System.out.println(a[2]);
 
     }
 

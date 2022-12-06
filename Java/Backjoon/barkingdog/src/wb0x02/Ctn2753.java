@@ -11,13 +11,11 @@ public class Ctn2753 {
 
         FastReader fr = new FastReader();
 
-        int a = fr.nextInt();
-
-        while(!(a >= 1)) {
-            System.out.println("a를 다시 입력, 현재값 : " + a); // 삭제 후 제출
+        int a;
+        do {
             a = fr.nextInt();
-            continue;
         }
+        while(!(a >= 1));
 
         if(a % 4 == 0 && a % 100 != 0 || a % 400 == 0) {
             System.out.println("1");

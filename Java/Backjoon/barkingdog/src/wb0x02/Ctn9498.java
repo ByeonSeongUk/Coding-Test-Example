@@ -1,5 +1,5 @@
 package wb0x02;
-// no
+// 시험 성적
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,13 +11,13 @@ public class Ctn9498 {
 
         FastReader fr = new FastReader();
 
-        int a = fr.nextInt();
-
-        while(!(a >= 0 && a <= 100)) {
-            System.out.println("a를 다시 입력, 현재값 : " + a); // 삭제 후 제출
+        int a;
+        do {
             a = fr.nextInt();
-            continue;
         }
+
+        while(!(a >= 0 && a <= 100));
+
         // 90 ~ 100점은 A, 80 ~ 89점은 B, 70 ~ 79점은 C, 60 ~ 69점은 D, 나머지 점수는 F
         if(a <= 100 && a >= 90) {
             System.out.println("A");
@@ -34,8 +34,6 @@ public class Ctn9498 {
         else {
             System.out.println("F");
         }
-
-
 
     }
 

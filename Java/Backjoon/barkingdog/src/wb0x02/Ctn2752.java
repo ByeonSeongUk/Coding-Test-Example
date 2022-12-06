@@ -12,27 +12,26 @@ public class Ctn2752 {
         FastReader fr = new FastReader();
         int[] arr = new int[3];
 
-        int a = fr.nextInt();
+        int a;
 
-        while(!(a >= 1 && a <= 1000000)) {
-            System.out.println("a를 다시 입력, 현재값 : " + a); // 삭제 후 제출
+        do {
             a = fr.nextInt();
-            continue;
         }
-        int b = fr.nextInt();
+        while(!(a >= 1 && a <= 1000000));
 
-        while(!(b >= 1 && b <= 1000000)) {
-            System.out.println("b를 다시 입력, 현재값 : " + b); // 삭제 후 제출
+        int b;
+
+        do {
             b = fr.nextInt();
-            continue;
         }
-        int c = fr.nextInt();
+        while(!(b >= 1 && b <= 1000000));
 
-        while(!(c >= 1 && c <= 1000000)) {
-            System.out.println("c를 다시 입력, 현재값 : " + c); // 삭제 후 제출
+        int c;
+
+        do {
             c = fr.nextInt();
-            continue;
         }
+        while(!(c >= 1 && c <= 1000000));
 
         arr[0] = a;
         arr[1] = b;

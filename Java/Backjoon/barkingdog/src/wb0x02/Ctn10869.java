@@ -11,21 +11,18 @@ public class Ctn10869 {
 
         FastReader fr = new FastReader();
 
-        int a = fr.nextInt();
+        int a;
 
-        while(!(a >= 1)) {
-            System.out.println("a를 다시 입력, 현재값 : " + a); // 삭제 후 제출
+        do{
             a = fr.nextInt();
-            continue;
         }
+        while(!(a >= 1));
 
-        int b = fr.nextInt();
+        int b;
 
-        while(!(b <= 10000)) {
-            System.out.println("b를 다시 입력, 현재값 : " + b); // 삭제 후 제출
+        do{
             b = fr.nextInt();
-            continue;
-        }
+        }while(!(b <= 10000));
 
         System.out.println("return(+) : " + (a + b));
         System.out.println("return(-) : " + (a - b));
