@@ -33,6 +33,8 @@ public class Ctn2587 {
 
     }
 
+
+
     static class FastReader {
         BufferedReader br;
         StringTokenizer st;

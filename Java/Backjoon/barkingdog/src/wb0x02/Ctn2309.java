@@ -3,6 +3,8 @@ package wb0x02;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.StringTokenizer;
 
 public class Ctn2309 {
@@ -10,6 +12,44 @@ public class Ctn2309 {
     public static void main(String[] args) {
 
         FastReader fr = new FastReader();
+
+        final int ARR_LENGTH = 9;
+
+        int[] a = new int[ARR_LENGTH];
+        int[] temp = new int[ARR_LENGTH];
+        int cnt = 0;
+        int sum = 0;
+
+        for(int i = 0; i < a.length; i++) {
+            do {
+                a[i] = fr.nextInt();
+            } while (
+                    (!(a[i] > 0 && a[i] < 100))
+            );
+            sum += a[i];
+            System.out.println(a[i]);
+        }
+
+        Arrays.sort(a);
+
+        for(int i = 0; i < a.length; i++){
+            boolean flag = false;
+            for(int j = 0; j < temp.length; j++){
+                if(a[i] == temp[j]){
+                    flag= true;
+                }
+            }
+            // 중복이 배제된 값이 저장.
+            if(!flag){
+                temp[cnt++] = a[i];
+            }
+        }
+        // 0을 배제 해주기 위한 부분
+        int[] result = new int[cnt];
+        for(int i = 0; i < result.length; i++){
+            result[i] = temp[i];
+        }
+        System.out.println(Arrays.toString(result));
 
 
     }
