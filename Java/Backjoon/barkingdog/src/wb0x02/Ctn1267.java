@@ -1,44 +1,57 @@
 package wb0x02;
-// 일곱 난쟁이
+// 핸드폰 요금
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.StringTokenizer;
 
-public class Ctn2309 {
+public class Ctn1267 {
 
     public static void main(String[] args) {
 
         FastReader fr = new FastReader();
 
-        int[] a = new int[9];
-        int sum = 0;
-        int fake1 = 0, fake2 = 0;
+        int cnt = fr.nextInt();
+        int[] time = new int[cnt];
+        int priceY = 0;
+        int priceM = 0;
 
-        for(int i = 0; i < 9; i++){
-            a[i] = fr.nextInt();
-            sum += a[i];
+        for(int i = 0; i < cnt; i++) {
+            time[i] = fr.nextInt();
         }
 
-        Arrays.sort(a);
+        for(int i = 0; i < cnt; i++) {
+
+            if(time[i] < 30)
+                priceY += 10;
+            else if(time[i] % 30 == 0)
+                priceY += (time[i] / 30 + 1) * 10;
+            else if(time[i] > 30)
+                priceY += Math.ceil((float) time[i] / 30) * 10;
 
 
-        for(int i = 0; i < a.length; i++) {
-            for(int j = 0; j < 9; j++) {
-                if(sum - a[i] - a[j] == 100 && a[i] != a[j]) {
-                    fake1 = i;
-                    fake2 = j;
-                }
-            }
+            if(time[i] < 60)
+                priceM += 15;
+            else if(time[i] % 60 == 0)
+                priceM += (time[i] / 60 + 1) * 15;
+            else if(time[i] > 60)
+                priceM += Math.ceil((float) time[i] / 60) * 15;
+
+
         }
 
-        for(int i = 0; i < a.length; i++) {
-            if(a[i] == a[fake1] || a[i] == a[fake2]) {
-                continue;
-            }
-            System.out.println(a[i]);
+        if(priceY > priceM) {
+            System.out.print("M ");
+            System.out.print(priceM);
+        }
+        else if(priceM > priceY) {
+            System.out.print("Y ");
+            System.out.print(priceY);
+        }
+        else {
+            System.out.print("Y ");
+            System.out.print("M ");
+            System.out.print(priceY);
         }
 
     }
