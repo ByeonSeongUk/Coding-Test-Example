@@ -1,50 +1,26 @@
 package wb0x02;
-// 카드 역배치 -- 입출력은 같으나 틀림, 분석하고 다시 제출
+// 별 찍기 - 1
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Ctn10804 {
+public class Ctn2438 {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        // Input Data
         FastReader fr = new FastReader();
 
-        int[] arr = new int[20];
+        int n = fr.nextInt();
 
-        for (int i = 1; i <= arr.length; i++) {
-            arr[i - 1] = i;
-        }
-
-        int start;
-        int end;
-
-        for(int i = 0; i < 10; i++) {
-
-            start = fr.nextInt() - 1;
-            end = fr.nextInt() - 1;
-
-
-            int num = (Math.abs(start - end + 1) / 2);
-            int cnt = 0;
-
-            for(int j = 0; j < num; j++) {
-                int temp = arr[start + cnt];
-                arr[start + cnt] = arr[end - cnt];
-                arr[end - cnt] = temp;
-                cnt++;
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < i+1; j++) {
+                System.out.print("*");
             }
-
-        }
-
-        for(int rt : arr) {
-            System.out.print(rt + " ");
+            System.out.println();
         }
 
     }
-
 
     static class FastReader {
         BufferedReader br;
@@ -87,6 +63,4 @@ public class Ctn10804 {
             return str;
         }
     }
-
-
 }
