@@ -1,36 +1,16 @@
 package wb0x03;
-// 알파벳 찾기
+// 개수 세기
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-import static sun.text.normalizer.UTF16.charAt;
-
-public class Ctn10808 {
+public class Ctn10807 {
 
     public static void main(String[] args) {
 
         FastReader fr = new FastReader();
 
-        String s = fr.next();
-        int[] arr = new int[26];
-        //  a == 97, z == 122
-
-        for(int i = 0; i < s.length(); i++) {
-
-            for(int j = 0; j < 26; j++) {
-
-                if ((int) s.charAt(i) == 97 + j) {
-                    arr[(int) s.charAt(i) - 97] = arr[(int) s.charAt(i) - 97] + 1;
-                }
-            }
-
-        }
-
-        for(int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
     }
 
     static class FastReader {

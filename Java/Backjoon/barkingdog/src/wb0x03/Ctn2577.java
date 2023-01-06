@@ -1,35 +1,35 @@
 package wb0x03;
-// 알파벳 찾기
+// 숫자의 개수
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
+import java.util.stream.Stream;
 
-import static sun.text.normalizer.UTF16.charAt;
-
-public class Ctn10808 {
+public class Ctn2577 {
 
     public static void main(String[] args) {
 
         FastReader fr = new FastReader();
 
-        String s = fr.next();
-        int[] arr = new int[26];
-        //  a == 97, z == 122
+        int a = fr.nextInt();
+        int b = fr.nextInt();
+        int c = fr.nextInt();
 
-        for(int i = 0; i < s.length(); i++) {
+        long total = (long) a * b * c;
+        int length = (int) ( Math.log10(total)+1 );
 
-            for(int j = 0; j < 26; j++) {
-
-                if ((int) s.charAt(i) == 97 + j) {
-                    arr[(int) s.charAt(i) - 97] = arr[(int) s.charAt(i) - 97] + 1;
-                }
-            }
-
-        }
+        int[] arr = Stream.of(String.valueOf(total).split("")).mapToInt(Integer::parseInt).toArray();
+        int[] cnt = new int[10];
 
         for(int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+            for(int j = 0; j < 10; j++) {
+                if(arr[i] == j) cnt[j]++;
+            }
+        }
+
+        for(int i = 0; i < cnt.length; i++) {
+            System.out.println(cnt[i]);
         }
     }
 
